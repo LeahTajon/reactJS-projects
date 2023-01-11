@@ -48,18 +48,38 @@ Create a navbar in JSX:
     - Don't worry about styling yet - it'll just be plain-looking HTNK for now
 */
 
-const nav = (
-    <nav>
-        <h1>Website</h1>
-        <ul>
-            <li>Pricing</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-    </nav>
-)
+// const nav = (
+//     <nav>
+//         <h1>Website</h1>
+//         <ul>
+//             <li>Pricing</li>
+//             <li>About</li>
+//             <li>Contact</li>
+//         </ul>
+//     </nav>
+// )
 
-ReactDOM.render(
-    nav,
-    document.getElementById('root')
-);
+// ReactDOM.render(
+//     nav,
+//     document.getElementById('root')
+// );
+// import React from "react"
+// import ReactDOM from "react-dom"
+
+// const page = (
+//     <div>
+//         <h1>My awesome website in React</h1>
+//         <h3>Reasons I love React</h3>
+//         <ol>
+//             <li>It's composable</li>
+//             <li>It's declarative</li>
+//             <li>It's hireable skill</li>
+//             <li>It's actively maintained by skilled people</li>
+//         </ol>    
+//     </div>
+// )
+
+// ReactDOM.render(
+//     page,
+//     document.getElementById('root')
+// )
