@@ -1,18 +1,14 @@
 import React from 'react'
 import ProfilePhoto from './ProfilePhoto'
+import ProfileInfo from './ProfileInfo'
 
 export default function MainContent() {
     return (
         <div>
-            <header>
-                <ProfilePhoto />
-            </header>
-            <main>
-                this is the profile info
-            </main>
-            <footer>
-                this is the social media links
-            </footer>
+            <ProfilePhoto />
+            <ProfileInfo />
+            this is the social media links
+            
         </div>
     )
 }
