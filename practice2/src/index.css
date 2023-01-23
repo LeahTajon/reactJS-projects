@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+  font-weight: bold;
+}
+.contact {
+  width: 600px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-card {
+  width: 220px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 20px;
+}
+
+.contact--image {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.info-group {
+  font-size: 12px;
+  margin: 10px 0; 
+}
+
+.joke {
+  width: 500px;
+  margin: 10px;
+  padding: 10px;
+}
