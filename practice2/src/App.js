@@ -9,6 +9,7 @@ function App() {
               setup={joke.setup} 
               punchline={joke.punchline}/>
   })
+  
   return (
     <div>
       {jokeElement}
