@@ -1,4 +1,4 @@
-export default [
+const JokesData = [
     {
         setup: "Why did the tomato turn red?",
         punchline: "Because it saw the salad dressing!"
@@ -21,3 +21,5 @@ export default [
     }
 
 ]
+
+export default JokesData
