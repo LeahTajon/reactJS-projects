@@ -12,10 +12,16 @@
   font-family: 'Inter', sans-serif;
 }
 
+.body {
+  background-color: #E5E5E5;
+}
+
 .app {
   
   width: 550px;
   height: auto;
+  margin: 0 auto;
+  background-color: #fff;
 }
 
 .icon {
