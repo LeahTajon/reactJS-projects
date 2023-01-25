@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
+
+:root {
+  --bg-navbar: #F55A5A;
+  --font-link: #918E9B;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.app {
+  
+  width: 550px;
+  height: auto;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar {
+  background-color: var(--bg-navbar);
+  width: 100%;
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  
+}
+
+.nav--title {
+  color: white;
+  font-size: 14.4608px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.075em;
+
+}
+
+.travel {
+  margin: 40px;
+  display: flex;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.travel--img {
+  width: 125px;
+  height: 168px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.travel-info {
+  padding: 20px;
+}
+
+.travel-map {
+  display: flex;
+  gap: 3px;
+  
+}
+
+.travel--icon {
+  width: 7px;
+  height: 9.55px;
+}
+
+.travel--country {
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.17em;
+  font-weight: 400;
+  margin: 0 .8em 0 0;
+  text-transform: uppercase;
+}
+
+.travel--map {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: underline;
+  color: var(--font-link);
+}
+
+.travel--title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #2B283A;
+  padding: 10px 0;
+
+}
+
+.travel--date {
+  font-weight: 700;
+  font-size: 10.24px;
+  line-height: 12px;
+
+  color: #2B283A;
+  padding: 5px 0;
+}
+
+.travel--desc {
+  font-size: 10.24px;
+}
