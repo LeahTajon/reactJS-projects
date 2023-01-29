@@ -1,53 +1,53 @@
 import React from 'react';
+import Star from './Components/Star'
+//import Count from './Components/Count'
 
-function App() {
+
+export default function App() {
   const [contact, setContact] = React.useState({
-      firstName: 'Joe',
+      firstName: 'Jane',
       lastName: 'Doe',
       phone: '+1 (719) 555-1212',
       email: 'itsmyrealname@example.com',
-      isFavorite: true
-  })
+      isFavorite: false
+   })
 
-  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
-
-  function toggleFavorite() {
+   function toggleFavorite() {
     setContact(prevState => ({
       ...prevState,
       isFavorite: !prevState.isFavorite
     }))
-  }
+   }
 
-  return (
-    <main>
-      <article className='card'>
-          <img 
-            src='images/user-photo.png' 
-            alt='avatar'
-            className='card--image'
-          />
-          <div className='card--info'>
-            <img
-              src={`images/${starIcon}`}
-              alt='empty star icon'
-              className='card--favorite'
-              onClick={toggleFavorite}
+   return (
+     <main>
+       <article className='card'>
+           <img 
+             src='images/user-photo.png' 
+             alt='avatar'
+             className='card--image'
             />
-            <h2 className='card--name'>
-              {contact.firstName} {contact.lastName}
-            </h2>
+           <div className='card--info'>
+             {/* <img
+               src={`images/${starIcon}`}
+               alt='empty star icon'
+               className='card--favorite'
+               onClick={toggleFavorite}
+             /> */}
+             <Star 
+                isFilled={contact.isFavorite} 
+                handleClick={toggleFavorite}/>
+             <h2 className='card--name'>
+               {contact.firstName} {contact.lastName}
+             </h2>
             <p className='card--contact'>{contact.phone}</p>
-            <p className='card--contact'>{contact.email}</p>
-          </div>
+             <p className='card--contact'>{contact.email}</p>
+           </div>
           
-      </article>
-    </main>
-  )
-}
-
-export default App;
-
-
+       </article>
+     </main>
+   )
+ }
 
 
 
@@ -181,3 +181,91 @@ export default App;
 //       </div>
 //     )
 // }
+
+
+// ************** PRACTICE #6 ***************************
+
+// function App() {
+//   const [contact, setContact] = React.useState({
+//       firstName: 'Joe',
+//       lastName: 'Doe',
+//       phone: '+1 (719) 555-1212',
+//       email: 'itsmyrealname@example.com',
+//       isFavorite: true
+//   })
+
+//   let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
+
+//   function toggleFavorite() {
+//     setContact(prevState => ({
+//       ...prevState,
+//       isFavorite: !prevState.isFa
+//     }))
+//   }
+
+//   return (
+//     <main>
+//       <article className='card'>
+//           <img 
+//             src='images/user-photo.png' 
+//             alt='avatar'
+//             className='card--image'
+//           />
+//           <div className='card--info'>
+//             <img
+//               src={`images/${starIcon}`}
+//               alt='empty star icon'
+//               className='card--favorite'
+//               onClick={toggleFavorite}
+//             />
+//             <h2 className='card--name'>
+//               {contact.firstName} {contact.lastName}
+//             </h2>
+//             <p className='card--contact'>{contact.phone}</p>
+//             <p className='card--contact'>{contact.email}</p>
+//           </div>
+          
+//       </article>
+//     </main>
+//   )
+// }
+
+// ************** PRACTICE #7 ***************************
+
+//function App() {
+
+  //Challenge: Set up state to track our count (initial value is 0)
+  
+  
+  //const [count, setCount] = React.useState(0)
+  //Note: if you ever need the old value of state to help you determine the new value of state, you should pass a callback function to your state setter function instead of using state directly. This callback function will receive the old value of state as its parameter, which you can then use to determine your new value of state.
+  
+  //   function add() {
+  //     setCount(prevCount => prevCount + 1)
+  //   }
+  
+  //   function subtract() {
+  //     setCount(prevCount => prevCount - 1)
+  //   }
+  
+  //    return (
+  //       <div className='counter'>
+  //        <button 
+  //          className='counter--minus'
+  //          onClick={subtract}>-</button>
+  
+  //       <Count number={count} />
+  
+  //        <button 
+  //          className='counter--plus'
+  //          onClick={add}>+</button>
+  //      </div>
+  //    )
+  //  }
+  
+  // export default App;
+  
+  /* <div className='counter--count'>
+           <h1>{count}</h1>
+         </div> */
+  
