@@ -1,39 +1,49 @@
 import React from 'react';
 
 function App() {
-  /*
-    Challenge: Set up state to track our count (initial value is 0)
-  */
+  const [contact, setContact] = React.useState({
+      firstName: 'Joe',
+      lastName: 'Doe',
+      phone: '+1 (719) 555-1212',
+      email: 'itsmyrealname@example.com',
+      isFavorite: true
+  })
 
-  const [count, setCount] = React.useState(0)
-  /*
-    Note: if you ever need the old value of state to help you determine the new value of state, you should pass a callback function to your state setter function instead of using state directly. This callback function will receive the old value of state as its parameter, which you can then use to determine your new value of state.
-  */
-  function add() {
-    setCount(prevCount => prevCount + 1)
-  }
+  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
 
-  function subtract() {
-    setCount(prevCount => prevCount - 1)
+  function toggleFavorite() {
+    setContact(prevState => ({
+      ...prevState,
+      isFavorite: !prevState.isFavorite
+    }))
   }
 
   return (
-    <div className='counter'>
-      <button 
-        className='counter--minus'
-        onClick={subtract}>-</button>
-
-      <div className='counter--count'>
-        <h1>{count}</h1>
-      </div>
-
-      <button 
-        className='counter--plus'
-        onClick={add}>+</button>
-    </div>
+    <main>
+      <article className='card'>
+          <img 
+            src='images/user-photo.png' 
+            alt='avatar'
+            className='card--image'
+          />
+          <div className='card--info'>
+            <img
+              src={`images/${starIcon}`}
+              alt='empty star icon'
+              className='card--favorite'
+              onClick={toggleFavorite}
+            />
+            <h2 className='card--name'>
+              {contact.firstName} {contact.lastName}
+            </h2>
+            <p className='card--contact'>{contact.phone}</p>
+            <p className='card--contact'>{contact.email}</p>
+          </div>
+          
+      </article>
+    </main>
   )
 }
-
 
 export default App;
 
@@ -43,7 +53,7 @@ export default App;
 
 
 
-// PRACTICE #1
+// ************** PRACTICE #1 *******************
 
 // import Joke from '../src/Components/Joke'
 // import JokesData from './Components/JokesData';
@@ -63,7 +73,7 @@ export default App;
 // }
 
 
-// PRACTICE #2
+// ************** PRACTICE #2 ***************************
 
 // function App() {
   /*
@@ -87,4 +97,87 @@ export default App;
 //       </div>
 //     </div>
 //    )
+// }
+
+
+// ************** PRACTICE #3 ***************************
+
+// function App() {
+
+//     Challenge: Set up state to track our count (initial value is 0)
+
+
+//   const [count, setCount] = React.useState(0)
+
+//     Note: if you ever need the old value of state to help you determine the new value of state, you should pass a callback function to your state setter function instead of using state directly. This callback function will receive the old value of state as its parameter, which you can then use to determine your new value of state.
+
+//   function add() {
+//     setCount(prevCount => prevCount + 1)
+//   }
+
+//   function subtract() {
+//     setCount(prevCount => prevCount - 1)
+//   }
+
+//   return (
+//     <div className='counter'>
+//       <button 
+//         className='counter--minus'
+//         onClick={subtract}>-</button>
+
+//       <div className='counter--count'>
+//         <h1>{count}</h1>
+//       </div>
+
+//       <button 
+//         className='counter--plus'
+//         onClick={add}>+</button>
+//     </div>
+//   )
+// }
+
+// ************** PRACTICE #4 ***************************
+
+// function App() {
+//   const [isGoingOut, setIsGoingOut] = React.useState(true)
+
+//   function changeMind() {
+//     setIsGoingOut(prevState => !prevState)
+//   }
+
+//   return (
+//     <div className='state'>
+//         <h1 className='state--title'>Do I feel like going out tonight?</h1>
+//         <div className='state--value' onClick={changeMind}>
+//           <h1>{isGoingOut ? "Yes" : "No"}</h1>
+//         </div>
+//     </div>
+
+//   )
+// }
+
+
+// ************** PRACTICE #5 ***************************
+
+// function App() {
+  
+//     Challenge: Convert the code below to use an array
+//     held in state instead of a local variable. Initialize
+//     the state array with the same 2 items below.
+
+//     Don't worry about fixing 'addItem' quite yet.
+  
+//     const [thingsArray, setThingsArray] = React.useState(['Thing 1', 'Thing 2'])
+
+//     function addItem() {
+//       setThingsArray(prevThingsArray => [...prevThingsArray, `Thing ${prevThingsArray.length + 1}`])
+//     }
+
+//     const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+//     return (
+//       <div>
+//         <button onClick={addItem}>Add Item</button>
+//         <p>{thingsElements}</p>
+//       </div>
+//     )
 // }
