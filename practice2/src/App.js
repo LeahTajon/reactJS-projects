@@ -1,55 +1,23 @@
 import React from 'react';
-import Star from './Components/Star'
-//import Count from './Components/Count'
 
+import Joke from '../src/Components/Joke'
+import JokesData from './Components/JokesData';
 
-export default function App() {
-  const [contact, setContact] = React.useState({
-      firstName: 'Jane',
-      lastName: 'Doe',
-      phone: '+1 (719) 555-1212',
-      email: 'itsmyrealname@example.com',
-      isFavorite: false
-   })
+function App() {
+  const jokeElement = JokesData.map(joke => {
+    return <Joke 
+               setup={joke.setup} 
+               punchline={joke.punchline}/>
+  })
+  
+  return (
+     <div>
+       {jokeElement}
+     </div>
+   );
+}
 
-   function toggleFavorite() {
-    setContact(prevState => ({
-      ...prevState,
-      isFavorite: !prevState.isFavorite
-    }))
-   }
-
-   return (
-     <main>
-       <article className='card'>
-           <img 
-             src='images/user-photo.png' 
-             alt='avatar'
-             className='card--image'
-            />
-           <div className='card--info'>
-             {/* <img
-               src={`images/${starIcon}`}
-               alt='empty star icon'
-               className='card--favorite'
-               onClick={toggleFavorite}
-             /> */}
-             <Star 
-                isFilled={contact.isFavorite} 
-                handleClick={toggleFavorite}/>
-             <h2 className='card--name'>
-               {contact.firstName} {contact.lastName}
-             </h2>
-            <p className='card--contact'>{contact.phone}</p>
-             <p className='card--contact'>{contact.email}</p>
-           </div>
-          
-       </article>
-     </main>
-   )
- }
-
-
+export default App;
 
 
 
@@ -265,7 +233,53 @@ export default function App() {
   
   // export default App;
   
+
+  // ************** PRACTICE #8 ***************************
+
   /* <div className='counter--count'>
            <h1>{count}</h1>
          </div> */
-  
+
+        //  import Star from './Components/Star'
+        //  //import Count from './Components/Count'
+         
+         
+        //  export default function App() {
+        //    const [contact, setContact] = React.useState({
+        //        firstName: 'Jane',
+        //        lastName: 'Doe',
+        //        phone: '+1 (719) 555-1212',
+        //        email: 'itsmyrealname@example.com',
+        //        isFavorite: false
+        //     })
+         
+        //     function toggleFavorite() {
+        //      setContact(prevState => ({
+        //        ...prevState,
+        //        isFavorite: !prevState.isFavorite
+        //      }))
+        //     }
+         
+        //     return (
+        //       <main>
+        //         <article className='card'>
+        //             <img 
+        //               src='images/user-photo.png' 
+        //               alt='avatar'
+        //               className='card--image'
+        //              />
+        //             <div className='card--info'>
+        //               <Star 
+        //                  isFilled={contact.isFavorite} 
+        //                  handleClick={toggleFavorite}/>
+        //               <h2 className='card--name'>
+        //                 {contact.firstName} {contact.lastName}
+        //               </h2>
+        //              <p className='card--contact'>{contact.phone}</p>
+        //               <p className='card--contact'>{contact.email}</p>
+        //             </div>
+                   
+        //         </article>
+        //       </main>
+        //     )
+        //   }
