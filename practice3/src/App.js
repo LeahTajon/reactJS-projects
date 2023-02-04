@@ -1,51 +1,91 @@
-import React from 'react'
+import React from "react"
 
-
-/*
-*   Challenge #2:
-*   - If there are no unread messages. display "You're all caught up!"
-*   - If there are > 0 unread messages, display "You have <n> unread message(s)"
-*       - If there's exactly 1 unread message, it should read "message" (singular)
-*/
 export default function App() {
-    const [messages, setMessages] = React.useState(['a', 'b'])
-    
-    return (
-        <div>
+    /**
+     *  Challenge: Connect the form to local state
+     * 
+     *  1. Create a state object to store the 4 values we need to save.
+     *  2. Create a single handleChange function that can manage the state
+     *      of all the inputs and set it up correctly
+     *  3. When the user clicks "Sign up", check if the password
+     *      & confirmation match each other. If so, log "Successfully signed up"
+     *      to the console. If not, log "passwords do not match" to the console.
+     *  4. Also when submitting the form, if the person checked the "newsletter"
+     *      checkbox, log "Thanks for signing up for our newsletter" to the console.  
+     */
+    const [formData, setFormData] = React.useState(
             {
-                messages.length === 0 ? 
-                <h1>You're all caught up!</h1> : 
-                <h1>You have {messages.length} unread {messages.length > 1 ? 'messages' : 'message'}</h1> 
-                
+                email: "",
+                password: "",
+                passwordConfirm: "",
+                isJoin: true
             }
+        )
+
+    function handleChange (event) {
+        const {name, value, type, checked} = event.target
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]: type === "checkbox" ? checked: value
+        }))
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        if (formData.password === formData.passwordConfirm) {
+            console.log("Successfully signed up")
+        } else {
+            console.log("Passwords do not match")
+            return
+        }
+
+        if (formData.isJoin) {
+            console.log("Thanks for signing up for our newsletter")
+        }
+    }
+
+    return (
+        <div className="form-container">
+            <form className="form" onSubmit={handleSubmit}>
+                <input 
+                    type="email"
+                    placeholder="Email"
+                    className="form--input"
+                    name="email"
+                    onChange={handleChange}
+                    value={formData.email}
+                />
+                <input 
+                    type="password"
+                    placeholder="Password"
+                    className="form--input"
+                    name="password"
+                    onChange={handleChange}
+                    value={formData.password}
+                />
+                <input 
+                    type="password"
+                    placeholder="Confirm Password"
+                    className="form--input"
+                    name="password-confirm"
+                    onChange={handleChange}
+                    value={formData.passwordConfirm}
+                />
+                <div className="form--marketing">
+                    <input 
+                        type="checkbox"
+                        id="okayToEmail"
+                        
+                    />
+                    <label htmlFor="okayToEmail">I want to join the newsletter</label> 
+                </div>
+                <button
+                    className="form--submit"
+                >
+                    Sign Up        
+                </button>
+            </form>
         </div>
     )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*   Challenge #1:
-*   - Only display the <h1> below if there are unread messages
-*/
-// export default function App() {
-//     const [messages, setMessages] = React.useState(['a', 'b'])
     
-//    return   (
-//         <div>
-//             {messages.length > 0 && <h1>You have {messages.length} unread messages!</h1>}
-//         </div>
-//    )
-// }
+}
